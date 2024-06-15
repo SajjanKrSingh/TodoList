@@ -8,9 +8,13 @@ const Create = () => {
 
     const TaskSubmitHandler = (e) => {
         e.preventDefault();
+        if (!title.trim()) {
+            return; // Do not create a task if the input is blank
+        }
         settasks([...tasks, { title: title, completed: false }]);
         settitle("");
     };
+    
 
     return (
         <form
